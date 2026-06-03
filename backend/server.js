@@ -46,7 +46,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://tu-sitio.netlify.app"
+      "https://splendorous-choux-c78ce5.netlify.app"
     ]
   })
 );
