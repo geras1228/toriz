@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.custom-card {
+  transition: all 0.35s ease;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  cursor: pointer;
+}
+
+.custom-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+/* Zoom de imagen */
+.custom-card:hover .card-img {
+  transform: scale(1.1);
+}
+
+/* Contenido interno de la card */
+.custom-card .p-card-body {
+  padding: 20px !important;
+}
+
+.custom-card .p-card-content {
+  padding-top: 10px !important;
+}
+
+.custom-card:active {
+  transform: scale(0.98);
+}
+
+/* separación entre tabs */
+.p-tabview-nav {
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* cada tab */
+.p-tabview-nav li {
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+/* hover */
+.p-tabview-nav li:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* tab activo */
+.p-tabview-nav li.p-highlight {
+  background: #00ffff20;
+}
+
+/* contenido */
+.p-tabview-panels {
+  padding: 20px;
+  line-height: 1.6;
+}
+

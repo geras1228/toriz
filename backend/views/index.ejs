@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Administrador</title>
+</head>
+
+<body
+    style="
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#111827,#1f2937);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+">
+
+    <div
+        style="
+        background:white;
+        padding:40px;
+        width:400px;
+        border-radius:20px;
+        box-shadow:0 20px 40px rgba(0,0,0,.25);
+    "
+    >
+
+        <h1
+            style="
+            text-align:center;
+            color:#1f2937;
+            margin-bottom:10px;
+        "
+        >
+            Panel Administrador
+        </h1>
+
+        <p
+            style="
+            text-align:center;
+            color:#6b7280;
+            margin-bottom:30px;
+        "
+        >
+            Inicia sesión para administrar las imágenes del sitio
+        </p>
+
+        <% if (message) { %>
+
+            <div
+                style="
+                background:#fee2e2;
+                color:#991b1b;
+                padding:12px;
+                border-radius:10px;
+                margin-bottom:20px;
+                text-align:center;
+            "
+            >
+                <%= message %>
+            </div>
+
+        <% } %>
+
+        <form
+            method="post"
+            style="
+            display:flex;
+            flex-direction:column;
+            gap:15px;
+        "
+        >
+
+            <input
+                type="text"
+                name="user"
+                placeholder="Usuario"
+                required
+                style="
+                padding:15px;
+                border:1px solid #d1d5db;
+                border-radius:10px;
+                font-size:16px;
+            "
+            >
+
+            <input
+                type="password"
+                name="pass"
+                placeholder="Contraseña"
+                required
+                style="
+                padding:15px;
+                border:1px solid #d1d5db;
+                border-radius:10px;
+                font-size:16px;
+            "
+            >
+
+            <button
+                type="submit"
+                style="
+                padding:15px;
+                border:none;
+                border-radius:10px;
+                background:#2563eb;
+                color:white;
+                font-size:16px;
+                font-weight:bold;
+                cursor:pointer;
+            "
+            >
+                Ingresar
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

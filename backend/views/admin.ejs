@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+
+    <% if (mensaje) { %>
+
+        <h3 style="color:green">
+            <%= mensaje %>
+        </h3>
+
+    <% } %>
+
+</head>
+
+<body
+    style="
+    font-family: Arial, sans-serif;
+    background:#f5f7fb;
+    padding:40px;
+    "
+>
+
+<div
+    style="
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+    "
+>
+
+<h1
+    style="
+    text-align:center;
+    color:#1f2937;
+    margin-bottom:30px;
+    "
+>
+    Panel Administrador
+</h1>
+
+<button
+    onclick="window.location.href='<%= frontendUrl %>'"
+    style="
+    padding:10px 20px;
+    border:none;
+    border-radius:10px;
+    background:#111827;
+    color:white;
+    cursor:pointer;
+    margin-bottom:20px;
+    "
+>
+    Volver al sitio
+</button>
+
+<form
+    action="/upload"
+    method="POST"
+    enctype="multipart/form-data"
+    style="
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    "
+>
+
+<select
+    name="categoria"
+    style="
+    padding:15px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    "
+>
+
+    <option value="proyectos">Proyectos</option>
+    <option value="metalicas">Metálicas</option>
+    <option value="vias">Vías</option>
+    <option value="topografia">Topografía</option>
+    <option value="riego">Riego</option>
+    <option value="urbanizacion">Urbanización</option>
+
+</select>
+
+<input
+    type="file"
+    name="imagen"
+    style="
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    "
+>
+
+<button
+    type="submit"
+    style="
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    "
+>
+    Subir Imagen
+</button>
+
+</form>
+
+</div>
+
+<hr style="margin:40px 0">
+
+<h2>Imágenes cargadas</h2>
+
+<table
+    border="1"
+    cellpadding="10"
+    cellspacing="0"
+    width="100%"
+>
+    <tr>
+        <th>Categoría</th>
+        <th>Imagen</th>
+        <th>Vista previa</th>
+        <th>Acción</th>
+    </tr>
+
+    <% imagenes.forEach(img => { %>
+
+        <tr>
+
+            <td>
+                <%= img.categoria %>
+            </td>
+
+            <td>
+                <%= img.archivo %>
+            </td>
+
+            <td>
+
+                <img
+                    src="/uploads/<%= img.categoria %>/<%= img.archivo %>"
+                    width="120"
+                >
+
+            </td>
+
+            <td>
+
+                <form
+                    action="/eliminar"
+                    method="POST"
+                >
+
+                    <input
+                        type="hidden"
+                        name="categoria"
+                        value="<%= img.categoria %>"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="archivo"
+                        value="<%= img.archivo %>"
+                    >
+
+                    <button>
+                        Eliminar
+                    </button>
+
+                </form>
+
+            </td>
+
+        </tr>
+
+    <% }) %>
+
+</table>
+
+</body>
+
+</html>
