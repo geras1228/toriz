@@ -3,20 +3,7 @@ import { Menubar } from "primereact/menubar";
 import { useState, useEffect } from "react";
 
 function Header() {
- const [isMobile, setIsMobile] = useState(
-  window.innerWidth < 768
-);
 
-useEffect(() => {
-  const handleResize = () => {
-    setIsMobile(window.innerWidth < 768);
-  };
-
-  window.addEventListener("resize", handleResize);
-
-  return () =>
-    window.removeEventListener("resize", handleResize);
-}, []);
 
   const navigate = useNavigate();
   const [darkMode, setDarkMode] = useState(false);
@@ -68,31 +55,8 @@ useEffect(() => {
       gap: "12px",
       alignItems: "center"
     }}
-  >
-
-    {/* 🔥 BOTÓN ADMIN */}
-    {!isMobile && (
-    <button
-      onClick={() => {
-        window.location.href = "http://localhost:3001";
-      }}
-      style={{
-        padding: "12px 22px",
-        borderRadius: "10px",
-        border: "none",
-        cursor: "pointer",
-        background: "linear-gradient(135deg,#111827,#1f2937)",
-        boxShadow: "0 10px 25px rgba(0,0,0,.20)",
-        color: "white",
-        fontWeight: "700",
-        fontSize: "14px",
-        transition: "0.3s"
-      }}
     >
-      Admin
-    </button>
-    )}
-
+    
     {/* 🌙 DARK MODE */}
     <button
       onClick={toggleTheme}
@@ -124,31 +88,36 @@ useEffect(() => {
   >
     <i
       className="pi pi-building"
+       onClick={() => {
+            window.location.href = "http://localhost:3001";
+          }}
       style={{
         fontSize: "1.8rem",
         color: "#c89b3c"
       }}
     />
 
-    <div>
-      <div
-        style={{
-          fontWeight: "800",
-          fontSize: "1.4rem"
-        }}
-      >
-        TORIZ
-      </div>
+        <div>
+        <div
+         
+          style={{
+            fontWeight: "800",
+            fontSize: "1.4rem",
+            cursor: "pointer"
+          }}
+        >
+          TORIZ
+        </div>
 
-      <div
-        style={{
-          fontSize: ".75rem",
-          color: "#64748b"
-        }}
-      >
-        Ingeniería & Construcción
+        <div
+          style={{
+            fontSize: ".75rem",
+            color: "#64748b"
+          }}
+        >
+          Ingeniería & Construcción
+        </div>
       </div>
-    </div>
   </div>
 );
 
