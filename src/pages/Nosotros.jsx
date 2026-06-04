@@ -10,13 +10,14 @@ function Nosotros() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
-      <div
-        style={{
-          marginTop: "80px",
-          minHeight: "100vh",
-          background: "#f8fafc"
-        }}
-      >
+     <div
+          style={{
+            marginTop: "80px",
+            minHeight: "100vh",
+            background:
+              "linear-gradient(180deg,#f8fafc,#eef2f7)"
+          }}
+        >
 
         {/* HERO */}
         <div
@@ -65,25 +66,125 @@ function Nosotros() {
             marginTop: "-60px"
           }}
         >
-          <Card>
-            <h1 style={{ color: "#2563eb" }}>10+</h1>
-            <h3>Años de Experiencia</h3>
-          </Card>
+         <Card
+              style={{
+                background: "rgba(255,255,255,.95)",
+                borderRadius: "24px",
+                textAlign: "center",
+                padding: "20px",
+                borderTop: "4px solid #c89b3c",
+                boxShadow: "0 15px 35px rgba(0,0,0,.08)"
+              }}
+            >
+              <h1
+                style={{
+                  fontSize: "3rem",
+                  margin: 0,
+                  color: "#c89b3c",
+                  fontWeight: "800"
+                }}
+              >
+                10+
+              </h1>
 
-          <Card>
-            <h1 style={{ color: "#2563eb" }}>250+</h1>
-            <h3>Proyectos Terminados</h3>
-          </Card>
+              <h3
+                style={{
+                  color: "#111827"
+                }}
+              >
+                Años de Experiencia
+              </h3>
+            </Card>
 
-          <Card>
-            <h1 style={{ color: "#2563eb" }}>100%</h1>
-            <h3>Compromiso</h3>
-          </Card>
+          <Card
+              style={{
+                background: "rgba(255,255,255,.95)",
+                borderRadius: "24px",
+                textAlign: "center",
+                padding: "20px",
+                borderTop: "4px solid #c89b3c",
+                boxShadow: "0 15px 35px rgba(0,0,0,.08)"
+              }}
+            >
+              <h1
+                style={{
+                  fontSize: "3rem",
+                  margin: 0,
+                  color: "#c89b3c",
+                  fontWeight: "800"
+                }}
+              >
+                250+
+              </h1>
 
-          <Card>
-            <h1 style={{ color: "#2563eb" }}>50+</h1>
-            <h3>Clientes Satisfechos</h3>
-          </Card>
+              <h3
+                style={{
+                  color: "#111827"
+                }}
+              >
+                Proyectos Terminados 
+              </h3>
+            </Card>
+
+          <Card
+                style={{
+                  background: "rgba(255,255,255,.95)",
+                  borderRadius: "24px",
+                  textAlign: "center",
+                  padding: "20px",
+                  borderTop: "4px solid #c89b3c",
+                  boxShadow: "0 15px 35px rgba(0,0,0,.08)"
+                }}
+              >
+                <h1
+                  style={{
+                    fontSize: "3rem",
+                    margin: 0,
+                    color: "#c89b3c",
+                    fontWeight: "800"
+                  }}
+                >
+                  100%
+                </h1>
+
+                <h3
+                  style={{
+                    color: "#111827"
+                  }}
+                >
+                  Compromiso
+                </h3>
+              </Card>
+
+         <Card
+              style={{
+                background: "rgba(255,255,255,.95)",
+                borderRadius: "24px",
+                textAlign: "center",
+                padding: "20px",
+                borderTop: "4px solid #c89b3c",
+                boxShadow: "0 15px 35px rgba(0,0,0,.08)"
+              }}
+            >
+              <h1
+                style={{
+                  fontSize: "3rem",
+                  margin: 0,
+                  color: "#c89b3c",
+                  fontWeight: "800"
+                }}
+              >
+                50+
+              </h1>
+
+              <h3
+                style={{
+                  color: "#111827"
+                }}
+              >
+                Clientes Satisfechos
+              </h3>
+            </Card>
         </div>
 
         {/* CONTENIDO */}
@@ -94,94 +195,120 @@ function Nosotros() {
             padding: "20px"
           }}
         >
-          <TabView>
+          <TabView  style={{
+              background: "white",
+              borderRadius: "25px",
+              padding: "20px",
+              boxShadow: "0 20px 50px rgba(0,0,0,.08)"
+            }}
+            >
 
             {/* HISTORIA */}
             <TabPanel header="Historia">
 
-  <Divider align="left">
-    <strong>Nuestra Historia</strong>
-  </Divider>
+              <Divider align="left">
+                <span
+                  style={{
+                    color: "#c89b3c",
+                    fontWeight: "700",
+                    fontSize: "1.1rem"
+                  }}
+                >
+                  Nuestra Historia
+                </span>
+              </Divider>
 
-  <div
-    style={{
-     display:"flex",
-      flexDirection:window.innerWidth < 768 ? "column" : "row",
-      alignItems:"center",
-      gap:"25px",
-    }}
-  >
+              <div
+                style={{
+                display:"flex",
+                  flexDirection:window.innerWidth < 768 ? "column" : "row",
+                  alignItems:"center",
+                  gap:"25px",
+                }}
+              >
 
-    {[
-      {
-        año: "2015",
-        texto:
-          "Inicio de operaciones en proyectos de urbanización e infraestructura."
-      },
-      {
-        año: "2018",
-        texto:
-          "Expansión de servicios hacia topografía y vías terrestres."
-      },
-      {
-        año: "2022",
-        texto:
-          "Incorporación de estructuras metálicas y sistemas de riego."
-      },
-      {
-        año: "Actualidad",
-        texto:
-          "Desarrollo integral de proyectos de ingeniería y construcción."
-      }
-    ].map((item, index) => (
-      <div
-        key={index}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "25px",
-          background: "white",
-          padding: "25px",
-          borderRadius: "20px",
-          boxShadow: "0 5px 20px rgba(0,0,0,.08)"
-        }}
-      >
-        <div
-          style={{
-            minWidth: "100px",
-            height: "100px",
-            borderRadius: "50%",
-            background: "#2563eb",
-            color: "white",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            fontWeight: "bold",
-            fontSize: "1.1rem"
-          }}
-        >
-          {item.año}
-        </div>
+                {[
+                  {
+                    año: "2015",
+                    texto:
+                      "Inicio de operaciones en proyectos de urbanización e infraestructura."
+                  },
+                  {
+                    año: "2018",
+                    texto:
+                      "Expansión de servicios hacia topografía y vías terrestres."
+                  },
+                  {
+                    año: "2022",
+                    texto:
+                      "Incorporación de estructuras metálicas y sistemas de riego."
+                  },
+                  {
+                    año: "Actualidad",
+                    texto:
+                      "Desarrollo integral de proyectos de ingeniería y construcción."
+                  }
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                   style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "25px",
+                      background: "#fff",
+                      padding: "25px",
+                      borderRadius: "24px",
+                      border: "1px solid rgba(200,155,60,.15)",
+                      boxShadow: "0 15px 30px rgba(0,0,0,.05)"
+                    }}
+                  >
+                    <div
+                     style={{
+                          minWidth: "100px",
+                          height: "100px",
+                          borderRadius: "50%",
+                          background:
+                            "linear-gradient(135deg,#c89b3c,#f3c66f)",
+                          color: "#111827",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          fontWeight: "bold",
+                          fontSize: "1.1rem",
+                          boxShadow:
+                            "0 10px 30px rgba(200,155,60,.35)"
+                        }}
+                    >
+                      {item.año}
+                    </div>
 
-        <div>
-          <h3>{item.año}</h3>
-          <p style={{ color: "#64748b" }}>
-            {item.texto}
-          </p>
-        </div>
-      </div>
-    ))}
+                    <div>
+                      <h3>{item.año}</h3>
+                      <p style={{ color: "#64748b" }}>
+                        {item.texto}
+                      </p>
+                    </div>
+                  </div>
+                ))}
 
-  </div>
+              </div>
 
-</TabPanel>
+            </TabPanel>
 
             {/* EQUIPO */}
            <TabPanel header="Equipo">
 
-  <Divider align="left">
-    <strong>Nuestro Equipo</strong>
-  </Divider>
+              <Divider align="left">
+                <span
+                  style={{
+                    color:"#c89b3c",
+                    fontWeight:"700",
+                    fontSize:"1.1rem"
+                  }}
+                >
+                  Nuestro Equipo
+                </span>
+              </Divider>
 
   <div
     style={{
@@ -208,25 +335,28 @@ function Nosotros() {
       }
     ].map((item, index) => (
       <Card
-        key={index}
-        style={{
-          textAlign: "center",
-          borderRadius: "20px",
-          overflow: "hidden"
-        }}
-      >
-        <Avatar
-          icon="pi pi-user"
-          size="xlarge"
-          shape="circle"
+          key={index}
           style={{
-            width: "90px",
-            height: "90px",
-            marginBottom: "15px",
-            background: "#2563eb",
-            color: "white"
+            borderRadius:"24px",
+            textAlign:"center",
+            padding:"15px",
+            border:"1px solid rgba(200,155,60,.15)",
+            boxShadow:"0 15px 30px rgba(0,0,0,.05)"
           }}
-        />
+        >
+       <Avatar
+            icon="pi pi-user"
+            size="xlarge"
+            shape="circle"
+            style={{
+              width:"100px",
+              height:"100px",
+              marginBottom:"15px",
+              background:
+                "linear-gradient(135deg,#c89b3c,#f3c66f)",
+              color:"#111827"
+            }}
+          />
 
         <h2>{item.puesto}</h2>
 
@@ -246,9 +376,29 @@ function Nosotros() {
             gap: "10px"
           }}
         >
-          <i className="pi pi-briefcase" />
-          <i className="pi pi-building" />
-          <i className="pi pi-users" />
+          <i
+              className="pi pi-briefcase"
+              style={{
+                color:"#c89b3c",
+                fontSize:"1.2rem"
+              }}
+            />
+
+            <i
+              className="pi pi-building"
+              style={{
+                color:"#c89b3c",
+                fontSize:"1.2rem"
+              }}
+            />
+
+            <i
+              className="pi pi-users"
+              style={{
+                color:"#c89b3c",
+                fontSize:"1.2rem"
+              }}
+            />
         </div>
       </Card>
     ))}
@@ -260,9 +410,17 @@ function Nosotros() {
             {/* PROYECTOS */}
           <TabPanel header="Proyectos">
 
-  <Divider align="left">
-    <strong>Proyectos Destacados</strong>
-  </Divider>
+            <Divider align="left">
+              <span
+                style={{
+                  color:"#c89b3c",
+                  fontWeight:"700",
+                  fontSize:"1.1rem"
+                }}
+              >
+                Proyectos Destacados
+              </span>
+             </Divider>
 
   <div
     style={{
@@ -280,22 +438,40 @@ function Nosotros() {
       "Vías Terrestres"
     ].map((titulo, index) => (
       <Card
-        key={index}
-        style={{
-          overflow: "hidden",
-          borderRadius: "20px"
-        }}
-      >
+          key={index}
+          style={{
+            overflow:"hidden",
+            borderRadius:"24px",
+            border:"1px solid rgba(200,155,60,.15)",
+            boxShadow:"0 15px 30px rgba(0,0,0,.05)"
+          }}
+        >
 
         <div
-          style={{
-            height: "180px",
-            background:
-              "linear-gradient(135deg,#2563eb,#1e40af)",
-            borderRadius: "12px",
-            marginBottom: "20px"
-          }}
-        />
+            style={{
+              height: "180px",
+              background:
+                "linear-gradient(135deg,#0f1115,#1f2937)",
+              borderRadius: "12px",
+              marginBottom: "20px",
+              position: "relative"
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                top: "20px",
+                left: "20px",
+                background: "#c89b3c",
+                color: "#111827",
+                padding: "8px 14px",
+                borderRadius: "50px",
+                fontWeight: "700"
+              }}
+            >
+              Proyecto
+            </div>
+          </div>
 
         <h2>{titulo}</h2>
 

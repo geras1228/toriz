@@ -70,10 +70,13 @@ console.log(imagenes);
   showThumbs={false}
   showStatus={false}
 >
-  {imagenes.map((img, index) => (
+ {imagenes.map((img, index) => {
+  console.log(`${API_URL}/uploads/vias/${img}`);
+
+  return (
     <div key={index}>
       <img
-       src={`${API_URL}/uploads/vias/${img}`}
+        src={`${API_URL}/uploads/vias/${img}`}
         alt=""
         style={{
           height: "500px",
@@ -82,7 +85,8 @@ console.log(imagenes);
         }}
       />
     </div>
-  ))}
+  );
+})}
 </Carousel>
 
     {/* FOOTER CON ICONOS */}
