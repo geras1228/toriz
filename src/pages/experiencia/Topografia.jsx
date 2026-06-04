@@ -72,11 +72,13 @@ function Topografia() {
               <img
                src={`${API_URL}/uploads/topografia/${img}`}
                 alt=""
-                style={{
-                  height: "500px",
-                  objectFit: "cover",
-                  borderRadius: "15px",
-                }}
+                 style={{
+                    width: "100%",
+                    height: "600px",
+                    objectFit: "contain",
+                    borderRadius: "15px",
+                    background: "#111"
+                  }}
               />
             </div>
           ))}

@@ -73,12 +73,13 @@ function Riego() {
              <img
                src={`${API_URL}/uploads/riego/${img}`}
                 alt=""
-                style={{
-                  width: "100%",
-                  maxHeight: "70vh",
-                  objectFit: "contain",
-                  borderRadius: "15px",
-                }}
+                 style={{
+                    width: "100%",
+                    height: "600px",
+                    objectFit: "contain",
+                    borderRadius: "15px",
+                    background: "#111"
+                  }}
               />
             </div>
           ))}

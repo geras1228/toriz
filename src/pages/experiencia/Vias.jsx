@@ -75,13 +75,15 @@ console.log(imagenes);
 
   return (
     <div key={index}>
-      <img
+     <img
         src={`${API_URL}/uploads/vias/${img}`}
         alt=""
         style={{
-          height: "500px",
-          objectFit: "cover",
+          width: "100%",
+          height: "600px",
+          objectFit: "contain",
           borderRadius: "15px",
+          background: "#111"
         }}
       />
     </div>
