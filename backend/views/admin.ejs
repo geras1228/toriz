@@ -4,15 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
-
-    <% if (mensaje) { %>
-
-        <h3 style="color:green">
-            <%= mensaje %>
-        </h3>
-
-    <% } %>
-
 </head>
 
 <body
@@ -20,8 +11,28 @@
     font-family: Arial, sans-serif;
     background:#f5f7fb;
     padding:40px;
+    margin:0;
     "
 >
+
+<% if (mensaje) { %>
+
+    <div
+        style="
+        max-width:700px;
+        margin:0 auto 20px auto;
+        padding:15px;
+        background:#dcfce7;
+        color:#166534;
+        border-radius:10px;
+        text-align:center;
+        font-weight:bold;
+        "
+    >
+        <%= mensaje %>
+    </div>
+
+<% } %>
 
 <div
     style="
@@ -34,160 +45,231 @@
     "
 >
 
-<h1
-    style="
-    text-align:center;
-    color:#1f2937;
-    margin-bottom:30px;
-    "
->
-    Panel Administrador
-</h1>
+    <h1
+        style="
+        text-align:center;
+        color:#1f2937;
+        margin-bottom:30px;
+        "
+    >
+        Panel Administrador
+    </h1>
 
-<button
-    onclick="window.location.href='<%= frontendUrl %>'"
-    style="
-    padding:10px 20px;
-    border:none;
-    border-radius:10px;
-    background:#111827;
-    color:white;
-    cursor:pointer;
-    margin-bottom:20px;
-    "
->
-    Volver al sitio
-</button>
+    <button
+        onclick="window.location.href='<%= frontendUrl %>'"
+        style="
+        padding:12px 20px;
+        border:none;
+        border-radius:10px;
+        background:#111827;
+        color:white;
+        cursor:pointer;
+        margin-bottom:20px;
+        font-weight:bold;
+        "
+    >
+        Volver al sitio
+    </button>
 
-<form
-    action="/upload"
-    method="POST"
-    enctype="multipart/form-data"
-    style="
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-    "
->
+    <form
+        action="/upload"
+        method="POST"
+        enctype="multipart/form-data"
+        style="
+        display:flex;
+        flex-direction:column;
+        gap:20px;
+        "
+    >
 
-<select
-    name="categoria"
-    style="
-    padding:15px;
-    border-radius:10px;
-    border:1px solid #ddd;
-    "
->
+        <select
+            name="categoria"
+            style="
+            padding:15px;
+            border-radius:10px;
+            border:1px solid #ddd;
+            "
+        >
+            <option value="proyectos">Proyectos</option>
+            <option value="metalicas">Metálicas</option>
+            <option value="vias">Vías</option>
+            <option value="topografia">Topografía</option>
+            <option value="riego">Riego</option>
+            <option value="urbanizacion">Urbanización</option>
+        </select>
 
-    <option value="proyectos">Proyectos</option>
-    <option value="metalicas">Metálicas</option>
-    <option value="vias">Vías</option>
-    <option value="topografia">Topografía</option>
-    <option value="riego">Riego</option>
-    <option value="urbanizacion">Urbanización</option>
+        <input
+            type="file"
+            name="imagen"
+            style="
+            padding:15px;
+            border:1px solid #ddd;
+            border-radius:10px;
+            "
+        >
 
-</select>
+        <button
+            type="submit"
+            style="
+            padding:15px;
+            border:none;
+            border-radius:10px;
+            background:#2563eb;
+            color:white;
+            font-weight:bold;
+            cursor:pointer;
+            "
+        >
+            Subir Imagen
+        </button>
 
-<input
-    type="file"
-    name="imagen"
-    style="
-    padding:15px;
-    border:1px solid #ddd;
-    border-radius:10px;
-    "
->
-
-<button
-    type="submit"
-    style="
-    padding:15px;
-    border:none;
-    border-radius:10px;
-    background:#2563eb;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-    "
->
-    Subir Imagen
-</button>
-
-</form>
+    </form>
 
 </div>
 
-<hr style="margin:40px 0">
-
-<h2>Imágenes cargadas</h2>
-
-<table
-    border="1"
-    cellpadding="10"
-    cellspacing="0"
-    width="100%"
+<div
+    style="
+    max-width:1200px;
+    margin:50px auto 0 auto;
+    "
 >
-    <tr>
-        <th>Categoría</th>
-        <th>Imagen</th>
-        <th>Vista previa</th>
-        <th>Acción</th>
-    </tr>
 
-    <% imagenes.forEach(img => { %>
+    <h2
+        style="
+        color:#1f2937;
+        margin-bottom:20px;
+        "
+    >
+        Imágenes cargadas
+    </h2>
 
-        <tr>
+    <table
+        style="
+        width:100%;
+        border-collapse:collapse;
+        background:white;
+        border-radius:20px;
+        overflow:hidden;
+        box-shadow:0 10px 30px rgba(0,0,0,.08);
+        "
+    >
 
-            <td>
-                <%= img.categoria %>
-            </td>
+        <thead>
 
-            <td>
-                <%= img.archivo %>
-            </td>
+            <tr
+                style="
+                background:#111827;
+                color:white;
+                "
+            >
+                <th style="padding:18px;">Categoría</th>
+                <th style="padding:18px;">Imagen</th>
+                <th style="padding:18px;">Vista previa</th>
+                <th style="padding:18px;">Acción</th>
+            </tr>
 
-            <td>
+        </thead>
 
-                <img
-                    src="/uploads/<%= img.categoria %>/<%= img.archivo %>"
-                    width="120"
+        <tbody>
+
+        <% imagenes.forEach(img => { %>
+
+            <tr
+                style="
+                border-bottom:1px solid #e5e7eb;
+                "
+            >
+
+                <td
+                    style="
+                    padding:15px;
+                    text-align:center;
+                    font-weight:600;
+                    "
+                >
+                    <%= img.categoria %>
+                </td>
+
+                <td
+                    style="
+                    padding:15px;
+                    text-align:center;
+                    "
+                >
+                    <%= img.archivo %>
+                </td>
+
+                <td
+                    style="
+                    padding:15px;
+                    text-align:center;
+                    "
                 >
 
-            </td>
+                    <img
+                        src="/uploads/<%= img.categoria %>/<%= img.archivo %>"
+                        style="
+                        width:150px;
+                        height:100px;
+                        object-fit:cover;
+                        border-radius:12px;
+                        box-shadow:0 4px 12px rgba(0,0,0,.15);
+                        "
+                    >
 
-            <td>
+                </td>
 
-                <form
-                    action="/eliminar"
-                    method="POST"
+                <td
+                    style="
+                    padding:15px;
+                    text-align:center;
+                    "
                 >
 
-                    <input
-                        type="hidden"
-                        name="categoria"
-                        value="<%= img.categoria %>"
+                    <form
+                        action="/eliminar"
+                        method="POST"
                     >
 
-                    <input
-                        type="hidden"
-                        name="archivo"
-                        value="<%= img.archivo %>"
-                    >
+                        <input
+                            type="hidden"
+                            name="categoria"
+                            value="<%= img.categoria %>"
+                        >
 
-                    <button>
-                        Eliminar
-                    </button>
+                        <input
+                            type="hidden"
+                            name="archivo"
+                            value="<%= img.archivo %>"
+                        >
 
-                </form>
+                        <button
+                            style="
+                            background:#dc2626;
+                            color:white;
+                            border:none;
+                            padding:10px 18px;
+                            border-radius:10px;
+                            cursor:pointer;
+                            font-weight:bold;
+                            "
+                        >
+                            Eliminar
+                        </button>
 
-            </td>
+                    </form>
 
-        </tr>
+                </td>
 
-    <% }) %>
+            </tr>
 
-</table>
+        <% }) %>
+
+        </tbody>
+
+    </table>
+
+</div>
 
 </body>
-
 </html>

@@ -102,25 +102,61 @@ function Estructuras() {
 
         <Carousel
           autoPlay
+          interval={60000}
           infiniteLoop
           showThumbs={false}
           showStatus={false}
         >
-          {imagenes.map((img, index) => (
-            <div key={index}>
-              <img
-                src={`${API_URL}/uploads/metalicas/${img}`}
-                alt=""
-                 style={{
-                    width: "100%",
-                    height: "600px",
-                    objectFit: "contain",
-                    borderRadius: "15px",
-                    background: "#111"
-                  }}
-              />
-            </div>
-          ))}
+         {imagenes.map((archivo, index) => {
+
+  const esVideo =
+    archivo.endsWith(".mp4") ||
+    archivo.endsWith(".mov") ||
+    archivo.endsWith(".webm");
+
+  return (
+    <div key={index}>
+
+      {esVideo ? (
+
+        <video
+          controls
+          autoPlay
+          playsInline
+          style={{
+            width: "100%",
+            height: "600px",
+            objectFit: "contain",
+            borderRadius: "15px",
+            background: "#111"
+          }}
+        >
+          <source
+            src={`${API_URL}/uploads/metalicas/${archivo}`}
+            type="video/mp4"
+          />
+          Tu navegador no soporta video.
+        </video>
+
+      ) : (
+
+        <img
+          src={`${API_URL}/uploads/metalicas/${archivo}`}
+          alt=""
+          style={{
+            width: "100%",
+            height: "600px",
+            objectFit: "contain",
+            borderRadius: "15px",
+            background: "#111"
+          }}
+        />
+
+      )}
+
+    </div>
+  );
+})}
         </Carousel>
 
       
