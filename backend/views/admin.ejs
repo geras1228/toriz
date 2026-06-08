@@ -120,7 +120,7 @@
             cursor:pointer;
             "
         >
-            Subir Imagen
+            Subir Archivo
         </button>
 
     </form>
@@ -140,134 +140,165 @@
         margin-bottom:20px;
         "
     >
-        Imágenes cargadas
+        Archivos cargados
     </h2>
 
-    <table
-        style="
-        width:100%;
-        border-collapse:collapse;
-        background:white;
-        border-radius:20px;
-        overflow:hidden;
-        box-shadow:0 10px 30px rgba(0,0,0,.08);
-        "
-    >
+    <%
+    const categorias = [
+        "proyectos",
+        "metalicas",
+        "vias",
+        "topografia",
+        "riego",
+        "urbanizacion"
+    ];
+    %>
 
-        <thead>
+    <% categorias.forEach(categoria => { %>
 
-            <tr
+        <%
+        const archivosCategoria = imagenes.filter(
+            img => img.categoria === categoria
+        );
+        %>
+
+        <details
+            style="
+            background:white;
+            margin-bottom:20px;
+            border-radius:15px;
+            overflow:hidden;
+            box-shadow:0 5px 15px rgba(0,0,0,.08);
+            "
+        >
+
+            <summary
                 style="
+                padding:20px;
+                cursor:pointer;
+                font-size:18px;
+                font-weight:bold;
                 background:#111827;
                 color:white;
                 "
             >
-                <th style="padding:18px;">Categoría</th>
-                <th style="padding:18px;">Imagen</th>
-                <th style="padding:18px;">Vista previa</th>
-                <th style="padding:18px;">Acción</th>
-            </tr>
+                📁 <%= categoria.toUpperCase() %>
+                (<%= archivosCategoria.length %> archivos)
+            </summary>
 
-        </thead>
-
-        <tbody>
-
-        <% imagenes.forEach(img => { %>
-
-            <tr
+            <div
                 style="
-                border-bottom:1px solid #e5e7eb;
+                display:grid;
+                grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+                gap:20px;
+                padding:20px;
                 "
             >
 
-                <td
-                    style="
-                    padding:15px;
-                    text-align:center;
-                    font-weight:600;
-                    "
-                >
-                    <%= img.categoria %>
-                </td>
+                <% archivosCategoria.forEach(img => { %>
 
-                <td
-                    style="
-                    padding:15px;
-                    text-align:center;
-                    "
-                >
-                    <%= img.archivo %>
-                </td>
-
-                <td
-                    style="
-                    padding:15px;
-                    text-align:center;
-                    "
-                >
-
-                    <img
-                        src="/uploads/<%= img.categoria %>/<%= img.archivo %>"
+                    <div
                         style="
-                        width:150px;
-                        height:100px;
-                        object-fit:cover;
+                        background:#f8fafc;
                         border-radius:12px;
-                        box-shadow:0 4px 12px rgba(0,0,0,.15);
+                        padding:15px;
+                        text-align:center;
+                        box-shadow:0 2px 10px rgba(0,0,0,.08);
                         "
                     >
 
-                </td>
+                        <%
+                        const esVideo =
+                            img.archivo.toLowerCase().endsWith(".mp4") ||
+                            img.archivo.toLowerCase().endsWith(".mov") ||
+                            img.archivo.toLowerCase().endsWith(".webm");
+                        %>
 
-                <td
-                    style="
-                    padding:15px;
-                    text-align:center;
-                    "
-                >
+                        <% if(esVideo){ %>
 
-                    <form
-                        action="/eliminar"
-                        method="POST"
-                    >
+                            <video
+                                controls
+                                style="
+                                width:100%;
+                                height:180px;
+                                object-fit:cover;
+                                border-radius:10px;
+                                "
+                            >
+                                <source
+                                    src="/uploads/<%= img.categoria %>/<%= img.archivo %>"
+                                >
+                            </video>
 
-                        <input
-                            type="hidden"
-                            name="categoria"
-                            value="<%= img.categoria %>"
-                        >
+                        <% } else { %>
 
-                        <input
-                            type="hidden"
-                            name="archivo"
-                            value="<%= img.archivo %>"
-                        >
+                            <img
+                                src="/uploads/<%= img.categoria %>/<%= img.archivo %>"
+                                style="
+                                width:100%;
+                                height:180px;
+                                object-fit:cover;
+                                border-radius:10px;
+                                "
+                            >
 
-                        <button
+                        <% } %>
+
+                        <p
                             style="
-                            background:#dc2626;
-                            color:white;
-                            border:none;
-                            padding:10px 18px;
-                            border-radius:10px;
-                            cursor:pointer;
-                            font-weight:bold;
+                            margin-top:10px;
+                            font-size:13px;
+                            color:#374151;
+                            word-break:break-all;
                             "
                         >
-                            Eliminar
-                        </button>
+                            <%= img.archivo %>
+                        </p>
 
-                    </form>
+                        <form
+                            action="/eliminar"
+                            method="POST"
+                        >
 
-                </td>
+                            <input
+                                type="hidden"
+                                name="categoria"
+                                value="<%= img.categoria %>"
+                            >
 
-            </tr>
+                            <input
+                                type="hidden"
+                                name="archivo"
+                                value="<%= img.archivo %>"
+                            >
 
-        <% }) %>
+                            <button
+                                onclick="return confirm('¿Deseas eliminar este archivo?')"
+                                style="
+                                background:#dc2626;
+                                color:white;
+                                border:none;
+                                padding:10px 18px;
+                                border-radius:8px;
+                                cursor:pointer;
+                                font-weight:bold;
+                                margin-top:10px;
+                                "
+                            >
+                                Eliminar
+                            </button>
 
-        </tbody>
+                        </form>
 
-    </table>
+                    </div>
+
+                <% }) %>
+
+            </div>
+
+        </details>
+
+    <% }) %>
 
 </div>
 
