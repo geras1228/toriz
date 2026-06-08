@@ -1,30 +1,22 @@
 import { Link } from "react-router-dom";
 
-
 function Navbar() {
   return (
-    <div
-      style={{
-        background: "#1f4e79",
-        padding: "15px 30px",
-        color: "white",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center"
-      }}
-    >
-      <h2 style={{ margin: 0 }}>TORIZ PALACIOS ALFONSO</h2>
+    <div className="navbar">
+      <h2 className="navbar-logo">
+        TORIZ PALACIOS ALFONSO
+      </h2>
 
-      <div style={{ display: "flex", gap: "20px" }}>
-        <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+      <div className="navbar-links">
+        <Link to="/" className="navbar-link">
           Inicio
         </Link>
 
-        <Link to="/nosotros" style={{ color: "white", textDecoration: "none" }}>
+        <Link to="/nosotros" className="navbar-link">
           Nosotros
         </Link>
 
-        <Link to="/experiencia" style={{ color: "white", textDecoration: "none" }}>
+        <Link to="/experiencia" className="navbar-link">
           Experiencia
         </Link>
       </div>

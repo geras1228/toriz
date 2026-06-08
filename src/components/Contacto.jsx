@@ -9,26 +9,22 @@ import {
 
 function Contacto() {
   return (
-    <div
-      style={{
-        padding: "80px 20px",
-        background: "linear-gradient(180deg,#04091f,#09123a)",
-        color: "white"
-      }}
-    >
+   <div className="contact-section">
+
+  <div className="contact-particles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
       <div
         style={{
           maxWidth: "1200px",
           margin: "0 auto"
         }}
       >
-        <h2
-          style={{
-            textAlign: "center",
-            fontSize: "3rem",
-            marginBottom: "15px"
-          }}
-        >
+       <h2 className="contact-title">
           Contáctanos
         </h2>
 
@@ -55,7 +51,7 @@ function Contacto() {
           }}
         >
           {/* IZQUIERDA */}
-          <div>
+          <div className="contact-info">
             <h3
               style={{
                 color: "#c89b3c",
@@ -135,6 +131,7 @@ function Contacto() {
               }}
             >
               <a
+               className="social-link"
                 href="https://facebook.com"
                 target="_blank"
                 rel="noreferrer"
@@ -143,6 +140,7 @@ function Contacto() {
               </a>
 
               <a
+              className="social-link"
                 href="https://wa.me/5213315320692"
                 target="_blank"
                 rel="noreferrer"
@@ -151,6 +149,7 @@ function Contacto() {
               </a>
 
               <a
+              className="social-link"
                 href="https://instagram.com/torizpalaciosalfonso"
                 target="_blank"
                 rel="noreferrer"
@@ -162,7 +161,7 @@ function Contacto() {
 
           {/* DERECHA */}
           <div>
-            <iframe
+            <iframe className="contact-map"
               title="Mapa"
               src="https://www.google.com/maps/embed?pb=!4v1780599187706!6m8!1m7!1sWUG_-Eo6jO-LBo4WagxFFA!2m2!1d21.17733720334516!2d-102.8841882303817!3f193.51!4f1.8299999999999983!5f0.7820865974627469"
               width="100%"

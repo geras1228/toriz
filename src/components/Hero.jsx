@@ -3,9 +3,23 @@ import "./Hero.css";
 function Hero() {
   return (
     <section className="hero">
+      <div className="hero-line"></div>
+
+      <div className="particles">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+      
       <div className="hero-overlay"></div>
+      
 
       <div className="hero-content">
+
+        
 
         <p className="hero-small">
           Diseño • Construcción • Topografía
